@@ -96,7 +96,7 @@ h1{font-family:var(--serif);font-weight:400;font-size:clamp(34px,4.4vw,60px);lin
   font-family:var(--mono);font-size:11px;font-weight:600;text-transform:uppercase;
   letter-spacing:.14em;color:var(--gray-700);margin-bottom:28px;
 }
-.grid{display:grid;grid-template-columns:repeat(5,1fr);gap:44px 24px}
+.grid{display:grid;grid-template-columns:repeat(6,1fr);gap:44px 24px}
 .beat{display:flex;flex-direction:column}
 
 .frame{
@@ -182,7 +182,7 @@ footer .fine{
     <h1>L’audiovisivo cambia&nbsp;formato</h1>
     <p class="sub">Video per l’8° Rapporto sulla Produzione Audiovisiva Nazionale di APA. Tre dati del focus OpenEconomics, uno per scena, sopra riprese in duotone Bluette montate a tempo di musica. Stile, ritmo e animazioni sono quelli della scena tennis FITP.</p>
     <dl class="meta">
-      <div><dt>Durata</dt><dd>0:15</dd></div>
+      <div><dt>Durata</dt><dd>0:17,5</dd></div>
       <div><dt>Formato</dt><dd>Verticale 9:16</dd></div>
       <div><dt>Lingua</dt><dd>Italiano</dd></div>
       <div><dt>Voiceover</dt><dd>Nessuno</dd></div>
@@ -198,7 +198,7 @@ footer .fine{
     <div class="player">
       <video src="out/video-apa.mp4" poster="out/scene/hero.jpg" controls preload="none"
              aria-label="Video completo — L’audiovisivo cambia formato"></video>
-      <p class="caption">0:15 · 1080×1920 · 30 fps · solo musica, senza voce · audio a <strong>−14,8 LUFS</strong>, picco −3 dBFS. Traccia composta sui 16 s, con un vero finale: l’impatto cade a 13 s insieme al logo e l’accordo si spegne sul codino. Le cinque scene qui sotto sono i segmenti che lo compongono.</p>
+      <p class="caption">0:17,5 · 1080×1920 · 30 fps · solo musica, senza voce · audio a <strong>−13,4 LUFS</strong>. Traccia con un vero finale: l’impatto cade a 15,5 s insieme al logo e l’accordo si spegne sul codino. Le sei scene qui sotto sono i segmenti che lo compongono.</p>
     </div>
   </div>
 </section>
@@ -289,15 +289,32 @@ footer .fine{
       <!-- 5 -->
       <article class="beat">
         <div class="frame">
-          <video src="out/scene/s5.mp4" poster="out/scene/s5.jpg" muted loop playsinline preload="none" aria-label="Chiusura: logo OpenEconomics su viola pieno"></video>
-          <div class="layer"><span class="tc">0:13 – 0:15</span></div>
+          <video src="out/scene/s5.mp4" poster="out/scene/s5.jpg" muted loop playsinline preload="none" aria-label="Invito al rapporto APA su viola pieno"></video>
+          <div class="layer"><span class="tc">0:13 – 0:15,5</span></div>
           <div class="safe"></div>
         </div>
         <div class="info">
-          <p class="idx">Scena 05 · Chiusura <span class="chip keep">Grafica</span></p>
+          <p class="idx">Scena 05 · Invito al rapporto <span class="chip">Nuova</span></p>
+          <dl>
+            <div><dt>On-screen</dt><dd>Scopri tutti i dati e le analisi nell’8° Rapporto sulla Produzione Audiovisiva Nazionale</dd></div>
+            <div><dt>Visivo</dt><dd class="prompt">Le immagini sfumano sul viola pieno. La frase entra con lo stesso zoom verso la camera del titolo d’apertura, resta 2,2 s per la lettura ed esce in dissolvenza poco prima del logo.</dd></div>
+            <div><dt>Nota</dt><dd class="note">Aggiunta col feedback del 2 novembre: il video si chiudeva troppo netto e non faceva capire che i dati vengono da una ricerca più ampia. Testo alla lettera, in Hedvig bianco come il titolo.</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <!-- 6 -->
+      <article class="beat">
+        <div class="frame">
+          <video src="out/scene/s6.mp4" poster="out/scene/s6.jpg" muted loop playsinline preload="none" aria-label="Chiusura: logo OpenEconomics su viola pieno"></video>
+          <div class="layer"><span class="tc">0:15,5 – 0:17,5</span></div>
+          <div class="safe"></div>
+        </div>
+        <div class="info">
+          <p class="idx">Scena 06 · Chiusura <span class="chip keep">Grafica</span></p>
           <dl>
             <div><dt>On-screen</dt><dd>Logo OpenEconomics · codino «We measure what really matters» · in basso a sinistra «8° Rapporto sulla Produzione Audiovisiva Nazionale · APA»</dd></div>
-            <div><dt>Visivo</dt><dd class="prompt">Le immagini sfumano sul viola pieno. Una breve salita accompagna la sfumata sul viola; sull’impatto finale della musica, a 13,0 s, il logo si stampa rientrando dall’alto. L’accordo conclusivo risuona e si spegne mentre entra il codino.</dd></div>
+            <div><dt>Visivo</dt><dd class="prompt">Dopo l’invito, una breve salita della musica; sull’impatto finale, a 15,5 s, il logo si stampa rientrando dall’alto. L’accordo conclusivo risuona e si spegne mentre entra il codino.</dd></div>
             <div><dt>Nota</dt><dd class="note">Il codino (Bluette pieno, logo esteso e «We measure what really matters» in Hedvig) è pensato per restare uguale in tutti i video OE. La riga specifica del video sta fuori, in basso a sinistra.</dd></div>
           </dl>
         </div>
@@ -313,8 +330,8 @@ footer .fine{
     <ul>
       <li><strong>Si parla di cinema, non solo di un formato social.</strong> Il microdrama è un pezzo della produzione audiovisiva di cui parla il rapporto. Per farlo capire senza toccare i testi lo dicono le immagini: si apre su un set vero, e su smartphone, feed e TV passano scene girate come film.</li>
       <li>I testi a schermo sono quelli della storyboard, alla lettera, tranne la scena 4, completata col feedback del 2 novembre. La tipografia è quella della scena tennis: pretitolo in Atkinson Mono maiuscolo Lime, numero in Hedvig, didascalia in Atkinson. Ogni blocco entra con uno zoom verso la camera.</li>
-      <li><strong>La chiusura viene dalla musica.</strong> La traccia è composta apposta sui 16 s (ElevenLabs Music), corporate e incalzante, e ha un vero finale: salita, impatto con ottoni e accordo maggiore che si spegne da solo. È presa da 0,57 s in modo che l’impatto cada a 13,0, sull’arrivo del logo. I tagli restano ai tempi della storyboard, 3 · 6,5 · 10 s.</li>
-      <li><strong>Feedback del 2 novembre:</strong> numeri e scritte attorno ingranditi di circa un terzo (numero 280 px, etichetta 36, didascalia 46, fonte 28 su 1080) e fonte spostata in basso, sopra i loghi; pretitolo e didascalia del 1,7× completati («piattaforme», «volte»); filtro viola più leggero; aggiunto il codino «We measure what really matters»; musica corporate e incalzante con un finale vero, al posto della prima traccia cinematica e di altre versioni scartate (elettronica con drop, corporate senza finale).</li>
+      <li><strong>La chiusura viene dalla musica.</strong> La traccia (ElevenLabs Music) è corporate e incalzante e ha un vero finale: salita, impatto con ottoni e accordo maggiore che si spegne da solo. Per fare spazio all’invito al rapporto è allungata ripetendo una battuta a metà, così l’impatto cade a 15,5, sull’arrivo del logo. I tagli restano ai tempi della storyboard, 3 · 6,5 · 10 s.</li>
+      <li><strong>Feedback del 2 novembre:</strong> numeri e scritte attorno ingranditi di circa un terzo (numero 280 px, etichetta 36, didascalia 46, fonte 28 su 1080) e fonte spostata in basso, sopra i loghi; pretitolo e didascalia del 1,7× completati («piattaforme», «volte»); filtro viola più leggero; aggiunto il codino «We measure what really matters»; aggiunta prima del codino la schermata d’invito all’8° Rapporto, con il video allungato da 15 a 17,5 s; musica corporate e incalzante con un finale vero, al posto della prima traccia cinematica e di altre versioni scartate (elettronica con drop, corporate senza finale).</li>
       <li>Trattamento fotografico: duotone Bluette con gli stessi due estremi del tennis, ma al 72% sopra l’immagine originale desaturata, così la ripresa traspare un filo. Velature e chiusura sono su Bluette 900.</li>
       <li>Le riprese sono tutte <strong>generate con AI</strong>: tre nuove (Seedance 2.5) e una dal video Audiovisivo. Il bollino AI resta fisso in alto a sinistra per tutta la durata. Anche la musica è generata (ElevenLabs Music).</li>
       <li>I clip nuovi sono scaricati in anteprima, 608×1080, e ingranditi a 1080. Il testo resta nitido perché è disegnato direttamente a 1080. Gli originali a piena definizione sono su Magnific.</li>
