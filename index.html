@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Storyboard visivo — Video APA | OpenEconomics</title>
+
+<style>
+/* ── Font ─────────────────────────────────────────────────────────────── */
+@font-face{font-family:"Hedvig Letters Serif";src:url("assets/fonts/HedvigLettersSerif-18pt-Regular.ttf") format("truetype");font-weight:400;font-display:swap}
+@font-face{font-family:"Atkinson Hyperlegible Next";src:url("assets/fonts/AtkinsonHyperlegibleNext-Regular.ttf") format("truetype");font-weight:400;font-display:swap}
+@font-face{font-family:"Atkinson Hyperlegible Next";src:url("assets/fonts/AtkinsonHyperlegibleNext-Bold.ttf") format("truetype");font-weight:700;font-display:swap}
+@font-face{font-family:"Atkinson Hyperlegible Mono";src:url("assets/fonts/AtkinsonHyperlegibleMono-VariableFont_wght.ttf") format("truetype");font-weight:200 800;font-display:swap}
+
+/* ── Token OE ─────────────────────────────────────────────────────────── */
+:root{
+  --bluette-700:#4400B3;
+  --bluette-900:#270065;
+  --lime-400:#B9FF69;
+  --white:#FFFFFF;
+  --black:#000000;
+  --gray-300:#D2D2D2;
+  --gray-500:#999999;
+  --gray-700:#545454;
+
+  --serif:"Hedvig Letters Serif",Georgia,serif;
+  --sans:"Atkinson Hyperlegible Next",-apple-system,"Helvetica Neue",Arial,sans-serif;
+  --mono:"Atkinson Hyperlegible Mono",ui-monospace,"SF Mono",Menlo,monospace;
+
+  --max:1440px;
+  --pad:40px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0;border-radius:0}
+
+body{
+  background:var(--white);color:var(--black);
+  font-family:var(--sans);font-size:16px;line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
+
+/* ── Header ───────────────────────────────────────────────────────────── */
+.masthead{background:var(--bluette-700);color:var(--white);padding:64px 0 56px}
+.masthead .wrap{display:flex;flex-direction:column;gap:28px}
+.eyebrow{
+  font-family:var(--mono);font-size:12px;font-weight:600;
+  text-transform:uppercase;letter-spacing:.14em;color:var(--lime-400);
+}
+h1{font-family:var(--serif);font-weight:400;font-size:clamp(34px,4.4vw,60px);line-height:1.06;letter-spacing:-.01em;max-width:20ch}
+.sub{font-size:17px;line-height:1.5;max-width:62ch;color:rgba(255,255,255,.86)}
+
+.meta{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:1px;background:rgba(255,255,255,.28);border:1px solid rgba(255,255,255,.28);margin-top:6px;
+}
+.meta div{background:var(--bluette-700);padding:16px 18px}
+.meta dt{
+  font-family:var(--mono);font-size:11px;font-weight:600;text-transform:uppercase;
+  letter-spacing:.12em;color:rgba(255,255,255,.62);margin-bottom:6px;
+}
+.meta dd{font-size:15px;line-height:1.35}
+
+/* ── Video completo ───────────────────────────────────────────────────── */
+.hero{background:var(--black);padding:56px 0 64px}
+.hero .wrap{display:flex;flex-direction:column;gap:20px}
+.hero h2{
+  font-family:var(--mono);font-size:12px;font-weight:600;text-transform:uppercase;
+  letter-spacing:.14em;color:var(--lime-400);
+}
+.hero .player{display:grid;grid-template-columns:minmax(240px,380px) 1fr;gap:40px;align-items:end}
+.hero video{width:100%;aspect-ratio:9/16;height:auto;display:block;background:var(--bluette-900);border:1px solid rgba(255,255,255,.25)}
+.hero .caption{font-size:14px;color:rgba(255,255,255,.66);max-width:80ch}
+.hero .caption strong{color:rgba(255,255,255,.92)}
+
+/* ── Barra strumenti ──────────────────────────────────────────────────── */
+.toolbar{border-bottom:1px solid var(--gray-300);background:var(--white);position:sticky;top:0;z-index:10}
+.toolbar .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:24px;padding-top:14px;padding-bottom:14px}
+.toolbar .label{
+  font-family:var(--mono);font-size:11px;font-weight:600;text-transform:uppercase;
+  letter-spacing:.12em;color:var(--gray-700);
+}
+.toggle{display:inline-flex;align-items:center;gap:9px;cursor:pointer;user-select:none;font-size:14px}
+.toggle input{
+  appearance:none;width:17px;height:17px;border:1.5px solid var(--black);
+  background:var(--white);cursor:pointer;flex:none;display:grid;place-content:center;
+}
+.toggle input:checked{background:var(--bluette-700);border-color:var(--bluette-700)}
+.toggle input:checked::after{content:"";width:8px;height:8px;background:var(--lime-400)}
+.toggle input:focus-visible{outline:2px solid var(--bluette-700);outline-offset:2px}
+
+/* ── Griglia frame ────────────────────────────────────────────────────── */
+.board{padding:48px 0 96px}
+.board > .wrap > h2{
+  font-family:var(--mono);font-size:11px;font-weight:600;text-transform:uppercase;
+  letter-spacing:.14em;color:var(--gray-700);margin-bottom:28px;
+}
+.grid{display:grid;grid-template-columns:repeat(5,1fr);gap:44px 24px}
+.beat{display:flex;flex-direction:column}
+
+.frame{
+  container-type:inline-size;
+  position:relative;aspect-ratio:9/16;overflow:hidden;
+  background:var(--bluette-900);border:1px solid var(--black);
+}
+.frame video,.frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;z-index:0}
+
+/* i testi sono impressi nel video: qui resta solo il timecode */
+.layer{position:absolute;inset:0;z-index:2;padding:4.6cqw 5cqw;pointer-events:none}
+.tc{
+  font-family:var(--mono);font-size:4.6cqw;font-weight:600;letter-spacing:.11em;
+  text-transform:uppercase;color:var(--lime-400);
+  text-shadow:0 1px 8px rgba(0,0,0,.7);
+}
+
+/* Aree sicure 9:16 per Reels/TikTok — toggle: fuori restano l'interfaccia dell'app in alto e la didascalia in basso */
+.safe{position:absolute;inset:0;z-index:3;display:none;pointer-events:none}
+.grid.show-safe .safe{display:block}
+.safe::before{content:"";position:absolute;inset:7% 6% 18% 6%;outline:1px dashed rgba(185,255,105,.85)}
+.safe::after{
+  content:"AREA SICURA 9:16";position:absolute;left:6%;bottom:18%;transform:translateY(130%);
+  font-family:var(--mono);font-size:3.6cqw;font-weight:600;letter-spacing:.12em;color:var(--lime-400);
+}
+
+/* ── Metadati sotto il frame ──────────────────────────────────────────── */
+.info{border-left:1px solid var(--black);padding:16px 0 0 16px;margin-top:16px}
+.info .idx{
+  font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--bluette-700);margin-bottom:12px;
+  display:flex;align-items:center;gap:8px;flex-wrap:wrap;
+}
+.chip{
+  font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  background:var(--lime-400);color:var(--black);padding:3px 6px;
+}
+.chip.keep{background:var(--gray-300);color:var(--black)}
+.info dl{display:flex;flex-direction:column;gap:11px}
+.info dt{
+  font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--gray-500);margin-bottom:2px;
+}
+.info dd{font-size:14px;line-height:1.45}
+.info dd.vo{font-style:italic;color:var(--gray-700)}
+.info dd.prompt{font-size:13px;line-height:1.5;color:var(--gray-700)}
+.info dd.note{font-size:13px;line-height:1.5;color:var(--black)}
+.info code{font-family:var(--mono);font-size:.92em}
+
+/* ── Footer ───────────────────────────────────────────────────────────── */
+footer{background:var(--black);color:var(--white);padding:56px 0}
+footer .wrap{display:flex;flex-direction:column;gap:18px}
+footer h2{font-family:var(--serif);font-weight:400;font-size:26px;line-height:1.2}
+footer ul{list-style:none;display:flex;flex-direction:column;gap:9px;max-width:80ch}
+footer li{font-size:15px;line-height:1.5;color:rgba(255,255,255,.78);padding-left:18px;position:relative}
+footer li::before{content:"";position:absolute;left:0;top:.62em;width:7px;height:7px;background:var(--lime-400)}
+footer code{font-family:var(--mono);font-size:.9em;color:var(--lime-400)}
+footer .fine{
+  font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  color:rgba(255,255,255,.5);margin-top:14px;
+}
+
+@media (max-width:1200px){ .grid{grid-template-columns:repeat(3,1fr)} }
+@media (max-width:900px){ .grid{grid-template-columns:repeat(2,1fr)} .hero .player{grid-template-columns:1fr} .hero video{max-width:380px} }
+@media (max-width:640px){
+  :root{--pad:24px}
+  .grid{grid-template-columns:1fr;gap:36px}
+  .frame{max-width:380px}
+  .masthead{padding:44px 0 40px}
+}
+@media print{
+  .toolbar,.hero{display:none}
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .beat{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <p class="eyebrow">OpenEconomics · Storyboard visivo</p>
+    <h1>L’audiovisivo cambia&nbsp;formato</h1>
+    <p class="sub">Video per l’8° Rapporto sulla Produzione Audiovisiva Nazionale di APA. Tre dati del focus OpenEconomics, uno per scena, sopra riprese in duotone Bluette montate a tempo di musica. Stile, ritmo e animazioni sono quelli della scena tennis FITP.</p>
+    <dl class="meta">
+      <div><dt>Durata</dt><dd>0:15</dd></div>
+      <div><dt>Formato</dt><dd>Verticale 9:16</dd></div>
+      <div><dt>Lingua</dt><dd>Italiano</dd></div>
+      <div><dt>Voiceover</dt><dd>Nessuno</dd></div>
+      <div><dt>Musica</dt><dd>Cinematica, 100 BPM</dd></div>
+      <div><dt>Tono</dt><dd>Cinematico, data-driven</dd></div>
+    </dl>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <h2>Video montato</h2>
+    <div class="player">
+      <video src="out/video-apa.mp4" poster="out/scene/hero.jpg" controls preload="none"
+             aria-label="Video completo — L’audiovisivo cambia formato"></video>
+      <p class="caption">0:15 · 1080×1920 · 30 fps · solo musica, senza voce · audio a <strong>−14 LUFS</strong>, picco −1 dBTP. I tagli cadono sui colpi della traccia: 2,8 · 6,4 · 10,0 s, con la chiusura sul colpo forte a 13,0 s. Le cinque scene qui sotto sono i segmenti che lo compongono.</p>
+    </div>
+  </div>
+</section>
+
+<div class="toolbar">
+  <div class="wrap">
+    <span class="label">Vista</span>
+    <label class="toggle"><input type="checkbox" id="animToggle" checked> Anima i frame</label>
+    <label class="toggle"><input type="checkbox" id="safeToggle"> Mostra area sicura 9:16</label>
+  </div>
+</div>
+
+<main class="board">
+  <div class="wrap">
+    <h2>Scena per scena</h2>
+    <div class="grid" id="grid">
+
+      <!-- 1 -->
+      <article class="beat">
+        <div class="frame">
+          <video src="out/scene/s1.mp4" poster="out/scene/s1.jpg" muted loop playsinline preload="none" aria-label="Set cinematografico in una cornice 16:9 che si apre al 9:16"></video>
+          <div class="layer"><span class="tc">0:00 – 0:03</span></div>
+          <div class="safe"></div>
+        </div>
+        <div class="info">
+          <p class="idx">Scena 01 · Il set <span class="chip keep">Clip riusato</span></p>
+          <dl>
+            <div><dt>On-screen</dt><dd>«L’audiovisivo cambia formato» · sottotitolo «Il focus OpenEconomics per APA» · loghi OE e APA in basso a sinistra</dd></div>
+            <div><dt>Visivo</dt><dd class="prompt">Un set vero: troupe, luci e un operatore alla cinepresa che riprende due attori. La ripresa sta in una cornice 16:9 al centro, poi la cornice si allarga e ruota fino al 9:16 pieno. Duotone viola da qui alla fine.</dd></div>
+            <div><dt>Nota</dt><dd class="note">Clip del video Audiovisivo (<code>05-crew-scena</code>). Cornice e rotazione sono disegnate nella sovraimpressione, non in montaggio.</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <!-- 2 -->
+      <article class="beat">
+        <div class="frame">
+          <video src="out/scene/s2.mp4" poster="out/scene/s2.jpg" muted loop playsinline preload="none" aria-label="Mani che tengono uno smartphone con un dialogo fra due attori"></video>
+          <div class="layer"><span class="tc">0:03 – 0:06</span></div>
+          <div class="safe"></div>
+        </div>
+        <div class="info">
+          <p class="idx">Scena 02 · Microdrama <span class="chip">Nuova</span></p>
+          <dl>
+            <div><dt>On-screen</dt><dd>MICRODRAMA · TOP 30 APP PER INCASSI · <strong>13 su 30</strong> · app di intrattenimento dedicate al formato · fonte in piccolo: Google Play e App Store, rilevazioni 29/9 e 2/10</dd></div>
+            <div><dt>Visivo</dt><dd class="prompt">Mani che tengono lo smartphone in una stanza in penombra. Sullo schermo un dialogo fra un uomo e una donna, illuminato e inquadrato come in un film. Il numero resta fermo ed entra sul colpo di 3,4 s.</dd></div>
+            <div><dt>Prompt</dt><dd class="prompt">Seedance 2.5, 5 s: «Close-up of two hands holding a modern smartphone vertically in a dim room at night. On the phone screen plays a vertical cinematic drama: a man and a woman face each other in an intense dialogue, warm film-set lighting…»</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <!-- 3 -->
+      <article class="beat">
+        <div class="frame">
+          <video src="out/scene/s3.mp4" poster="out/scene/s3.jpg" muted loop playsinline preload="none" aria-label="Pollice che scorre un feed di scene da film"></video>
+          <div class="layer"><span class="tc">0:06 – 0:10</span></div>
+          <div class="safe"></div>
+        </div>
+        <div class="info">
+          <p class="idx">Scena 03 · Pubblicità online <span class="chip">Nuova</span></p>
+          <dl>
+            <div><dt>On-screen</dt><dd>PUBBLICITÀ ONLINE · ITALIA 2025 · <strong>7,37 mld €</strong> · raccolti dalle piattaforme online</dd></div>
+            <div><dt>Visivo</dt><dd class="prompt">Pollice che scorre lento un feed video. Nel feed passano scene da film: una cinepresa sul set, il primo piano di un’attrice, una strada di notte. Il numero entra sul colpo di 7,0 s.</dd></div>
+            <div><dt>Prompt</dt><dd class="prompt">Seedance 2.5, 5 s: «Extreme close-up of a thumb slowly scrolling a vertical video feed on a smartphone. Each video in the feed is a cinematic movie scene: a film crew with a camera on a set, an actress under a spotlight, a dramatic night street scene…»</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <!-- 4 -->
+      <article class="beat">
+        <div class="frame">
+          <video src="out/scene/s4.mp4" poster="out/scene/s4.jpg" muted loop playsinline preload="none" aria-label="TV accesa in una stanza buia, avvicinamento lento"></video>
+          <div class="layer"><span class="tc">0:10 – 0:13</span></div>
+          <div class="safe"></div>
+        </div>
+        <div class="info">
+          <p class="idx">Scena 04 · Raccolta pubblicitaria <span class="chip">Nuova</span></p>
+          <dl>
+            <div><dt>On-screen</dt><dd>RACCOLTA PUBBLICITARIA · 2025 · <strong>1,7×</strong> · TV, radio, quotidiani e periodici messi insieme</dd></div>
+            <div><dt>Visivo</dt><dd class="prompt">Un’unica inquadratura: TV accesa in una stanza buia, la camera si avvicina lenta. Sullo schermo una scena con luce da cinema. Il numero entra sul colpo di 10,6 s, nel pieno della musica; da 12 s la traccia si ferma e le immagini sfumano sul viola.</dd></div>
+            <div><dt>Prompt</dt><dd class="prompt">Seedance 2.5, 5 s: «A dark living room at night, lit only by a flat-screen television standing on a low wooden cabinet. On the television a woman walks slowly through a softly lit room, in warm cinematic light… slow, steady camera push-in.»</dd></div>
+            <div><dt>Nota</dt><dd class="note">La prima versione del prompt («classic cinematic film scene, an actor in a dramatic close-up») è stata bloccata dalla moderazione di Seedance.</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <!-- 5 -->
+      <article class="beat">
+        <div class="frame">
+          <video src="out/scene/s5.mp4" poster="out/scene/s5.jpg" muted loop playsinline preload="none" aria-label="Chiusura: logo OpenEconomics su viola pieno"></video>
+          <div class="layer"><span class="tc">0:13 – 0:15</span></div>
+          <div class="safe"></div>
+        </div>
+        <div class="info">
+          <p class="idx">Scena 05 · Chiusura <span class="chip keep">Grafica</span></p>
+          <dl>
+            <div><dt>On-screen</dt><dd>Logo OpenEconomics · «8° Rapporto sulla Produzione Audiovisiva Nazionale · APA»</dd></div>
+            <div><dt>Visivo</dt><dd class="prompt">Le immagini sfumano sul viola pieno. Sul colpo forte di 13,0 s il logo si stampa, rientrando dall’alto; poi la musica si chiude netta.</dd></div>
+          </dl>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <h2>Note di lettura</h2>
+    <ul>
+      <li><strong>Si parla di cinema, non solo di un formato social.</strong> Il microdrama è un pezzo della produzione audiovisiva di cui parla il rapporto. Per farlo capire senza toccare i testi lo dicono le immagini: si apre su un set vero, e su smartphone, feed e TV passano scene girate come film.</li>
+      <li>I testi a schermo sono quelli della storyboard, alla lettera. La tipografia è quella della scena tennis: pretitolo in Atkinson Mono maiuscolo Lime, numero in Hedvig, didascalia in Atkinson. Ogni blocco entra con uno zoom verso la camera.</li>
+      <li><strong>I tempi vengono dalla musica.</strong> La traccia è presa da 12,53 s in modo che il colpo forte dopo lo stacco cada a 13,0, sull’arrivo del logo. Contando la griglia dei colpi (0,6 s) all’indietro da lì, i tagli cadono a 2,8 · 6,4 · 10,0 s, a ±0,2 s dalla storyboard. Ogni numero entra un colpo dopo il suo taglio.</li>
+      <li>Trattamento fotografico: duotone Bluette su tutte le riprese, con gli stessi due estremi del tennis. Velature e chiusura sono su Bluette 900.</li>
+      <li>Le riprese sono tutte <strong>generate con AI</strong>: tre nuove (Seedance 2.5) e una dal video Audiovisivo. Il bollino AI resta fisso in alto a sinistra per tutta la durata. Anche la musica è generata (Lyria).</li>
+      <li>I clip nuovi sono scaricati in anteprima, 608×1080, e ingranditi a 1080. Il testo resta nitido perché è disegnato direttamente a 1080. Gli originali a piena definizione sono su Magnific.</li>
+      <li><strong>Da verificare:</strong> le rilevazioni «29/9 e 2/10» sono senza anno, come nella storyboard.</li>
+      <li>Rimontabile con <code>node render.mjs</code>. La grafica sta in <code>scena-apa.html</code>, il girato in <code>assets/clips/</code>, la musica in <code>assets/audio/</code>.</li>
+    </ul>
+    <p class="fine">OpenEconomics · Bluette #4400B3 · Lime #B9FF69 · Hedvig Letters Serif + Atkinson Hyperlegible</p>
+  </div>
+</footer>
+<script>
+document.getElementById('safeToggle').addEventListener('change', function(e){
+  document.getElementById('grid').classList.toggle('show-safe', e.target.checked);
+});
+
+/* I clip dei beat partono solo quando entrano nel viewport: evita di caricare
+   e far girare nove video 1080p insieme. Il player del montaggio è escluso. */
+var animOn = true;
+var videos = Array.prototype.slice.call(document.querySelectorAll('.frame video'));
+
+var io = new IntersectionObserver(function(entries){
+  entries.forEach(function(entry){
+    var v = entry.target;
+    if (entry.isIntersecting && animOn){
+      if (v.preload === 'none'){ v.preload = 'auto'; v.load(); }
+      v.play().catch(function(){});
+    } else {
+      v.pause();
+    }
+  });
+}, { rootMargin: '100px', threshold: 0.25 });
+
+videos.forEach(function(v){ io.observe(v); });
+
+document.getElementById('animToggle').addEventListener('change', function(e){
+  animOn = e.target.checked;
+  videos.forEach(function(v){
+    if (!animOn){ v.pause(); v.currentTime = 0; }
+  });
+  if (animOn){
+    videos.forEach(function(v){
+      var r = v.getBoundingClientRect();
+      if (r.top < innerHeight && r.bottom > 0){
+        if (v.preload === 'none'){ v.preload = 'auto'; v.load(); }
+        v.play().catch(function(){});
+      }
+    });
+  }
+});
+</script>
+
+</body>
+</html>
