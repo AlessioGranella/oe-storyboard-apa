@@ -186,7 +186,7 @@ footer .fine{
       <div><dt>Formato</dt><dd>Verticale 9:16</dd></div>
       <div><dt>Lingua</dt><dd>Italiano</dd></div>
       <div><dt>Voiceover</dt><dd>Nessuno</dd></div>
-      <div><dt>Musica</dt><dd>Cinematica, 100 BPM</dd></div>
+      <div><dt>Musica</dt><dd>Elettronica ritmata, 120 BPM</dd></div>
       <div><dt>Tono</dt><dd>Cinematico, data-driven</dd></div>
     </dl>
   </div>
@@ -198,7 +198,7 @@ footer .fine{
     <div class="player">
       <video src="out/video-apa.mp4" poster="out/scene/hero.jpg" controls preload="none"
              aria-label="Video completo — L’audiovisivo cambia formato"></video>
-      <p class="caption">0:15 · 1080×1920 · 30 fps · solo musica, senza voce · audio a <strong>−14 LUFS</strong>, picco −1 dBTP. I tagli cadono sui colpi della traccia: 2,8 · 6,4 · 10,0 s, con la chiusura sul colpo forte a 13,0 s. Le cinque scene qui sotto sono i segmenti che lo compongono.</p>
+      <p class="caption">0:15 · 1080×1920 · 30 fps · solo musica, senza voce · audio a <strong>−14,8 LUFS</strong>, picco −3 dBFS. Il drop della musica cade sul primo taglio, a 3 s; i tagli successivi (6,5 · 10 s) e il logo (13 s) sono sui colpi della traccia. Le cinque scene qui sotto sono i segmenti che lo compongono.</p>
     </div>
   </div>
 </section>
@@ -244,7 +244,7 @@ footer .fine{
           <p class="idx">Scena 02 · Microdrama <span class="chip">Nuova</span></p>
           <dl>
             <div><dt>On-screen</dt><dd>MICRODRAMA · TOP 30 APP PER INCASSI · <strong>13 su 30</strong> · app di intrattenimento dedicate al formato · fonte in piccolo: Google Play e App Store, rilevazioni 29/9 e 2/10</dd></div>
-            <div><dt>Visivo</dt><dd class="prompt">Mani che tengono lo smartphone in una stanza in penombra. Sullo schermo un dialogo fra un uomo e una donna, illuminato e inquadrato come in un film. Il numero resta fermo ed entra sul colpo di 3,4 s.</dd></div>
+            <div><dt>Visivo</dt><dd class="prompt">Mani che tengono lo smartphone in una stanza in penombra. Sullo schermo un dialogo fra un uomo e una donna, illuminato e inquadrato come in un film. Il numero resta fermo ed entra sul colpo di 3,5 s, mezzo secondo dopo il drop.</dd></div>
             <div><dt>Prompt</dt><dd class="prompt">Seedance 2.5, 5 s: «Close-up of two hands holding a modern smartphone vertically in a dim room at night. On the phone screen plays a vertical cinematic drama: a man and a woman face each other in an intense dialogue, warm film-set lighting…»</dd></div>
           </dl>
         </div>
@@ -278,7 +278,7 @@ footer .fine{
           <p class="idx">Scena 04 · Raccolta pubblicitaria <span class="chip">Nuova</span></p>
           <dl>
             <div><dt>On-screen</dt><dd>RACCOLTA PUBBLICITARIA · 2025 · <strong>1,7×</strong> · TV, radio, quotidiani e periodici messi insieme</dd></div>
-            <div><dt>Visivo</dt><dd class="prompt">Un’unica inquadratura: TV accesa in una stanza buia, la camera si avvicina lenta. Sullo schermo una scena con luce da cinema. Il numero entra sul colpo di 10,6 s, nel pieno della musica; da 12 s la traccia si ferma e le immagini sfumano sul viola.</dd></div>
+            <div><dt>Visivo</dt><dd class="prompt">Un’unica inquadratura: TV accesa in una stanza buia, la camera si avvicina lenta. Sullo schermo una scena con luce da cinema. Il numero entra sul colpo di 10,5 s; da 12 s le immagini sfumano sul viola mentre il ritmo va pieno fino al logo.</dd></div>
             <div><dt>Prompt</dt><dd class="prompt">Seedance 2.5, 5 s: «A dark living room at night, lit only by a flat-screen television standing on a low wooden cabinet. On the television a woman walks slowly through a softly lit room, in warm cinematic light… slow, steady camera push-in.»</dd></div>
             <div><dt>Nota</dt><dd class="note">La prima versione del prompt («classic cinematic film scene, an actor in a dramatic close-up») è stata bloccata dalla moderazione di Seedance.</dd></div>
           </dl>
@@ -296,7 +296,7 @@ footer .fine{
           <p class="idx">Scena 05 · Chiusura <span class="chip keep">Grafica</span></p>
           <dl>
             <div><dt>On-screen</dt><dd>Logo OpenEconomics · «8° Rapporto sulla Produzione Audiovisiva Nazionale · APA»</dd></div>
-            <div><dt>Visivo</dt><dd class="prompt">Le immagini sfumano sul viola pieno. Sul colpo forte di 13,0 s il logo si stampa, rientrando dall’alto; poi la musica si chiude netta.</dd></div>
+            <div><dt>Visivo</dt><dd class="prompt">Le immagini sfumano sul viola pieno. Sul colpo di 13,0 s il logo si stampa, rientrando dall’alto, e la musica si chiude netta: il colpo suona e si spegne in mezzo secondo.</dd></div>
           </dl>
         </div>
       </article>
@@ -311,7 +311,8 @@ footer .fine{
     <ul>
       <li><strong>Si parla di cinema, non solo di un formato social.</strong> Il microdrama è un pezzo della produzione audiovisiva di cui parla il rapporto. Per farlo capire senza toccare i testi lo dicono le immagini: si apre su un set vero, e su smartphone, feed e TV passano scene girate come film.</li>
       <li>I testi a schermo sono quelli della storyboard, alla lettera. La tipografia è quella della scena tennis: pretitolo in Atkinson Mono maiuscolo Lime, numero in Hedvig, didascalia in Atkinson. Ogni blocco entra con uno zoom verso la camera.</li>
-      <li><strong>I tempi vengono dalla musica.</strong> La traccia è presa da 12,53 s in modo che il colpo forte dopo lo stacco cada a 13,0, sull’arrivo del logo. Contando la griglia dei colpi (0,6 s) all’indietro da lì, i tagli cadono a 2,8 · 6,4 · 10,0 s, a ±0,2 s dalla storyboard. Ogni numero entra un colpo dopo il suo taglio.</li>
+      <li><strong>I tempi vengono dalla musica.</strong> La traccia, a 120 BPM, è presa da 6,21 s in modo che il suo drop cada sul primo taglio, a 3 s: l’apertura sul set è il crescendo, i dati partono quando entra il ritmo. Con un colpo ogni 0,5 s i tagli cadono esattamente ai tempi della storyboard, 3 · 6,5 · 10 · 13 s. Ogni numero entra un colpo dopo il suo taglio.</li>
+      <li><strong>Feedback del 2 novembre:</strong> scritte attorno ai numeri ingrandite di circa un terzo (etichetta 36 px, didascalia 46, fonte 28 su 1080) e musica più ritmata al posto della prima traccia cinematica a 100 BPM.</li>
       <li>Trattamento fotografico: duotone Bluette su tutte le riprese, con gli stessi due estremi del tennis. Velature e chiusura sono su Bluette 900.</li>
       <li>Le riprese sono tutte <strong>generate con AI</strong>: tre nuove (Seedance 2.5) e una dal video Audiovisivo. Il bollino AI resta fisso in alto a sinistra per tutta la durata. Anche la musica è generata (Lyria).</li>
       <li>I clip nuovi sono scaricati in anteprima, 608×1080, e ingranditi a 1080. Il testo resta nitido perché è disegnato direttamente a 1080. Gli originali a piena definizione sono su Magnific.</li>
